@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+    Basic annotations - variables
+"""
 
 a: int = 1
 pi: float = 3.14

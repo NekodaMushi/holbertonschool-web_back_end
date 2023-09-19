@@ -8,7 +8,8 @@ from typing import Union, Tuple
 
 def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """
-    Takes a string 'k' and a number 'v' (int or float), and returns a tuple with 'k' and the square of 'v'.
+    Takes a string 'k' and a number 'v' (int or float),
+      and returns a tuple with 'k' and the square of 'v'.
 
     Args:
         k (str): The input string.
