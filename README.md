@@ -1,0 +1,1 @@
+Back-end study giving knowledge required to develop and maintain the server-side components of software applications. This typically includes topics such as server programming, databases, APIs, and server deployment, enabling students to build the functionality that powers web and mobile applications.
