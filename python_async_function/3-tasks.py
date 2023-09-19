@@ -6,7 +6,6 @@
 from asyncio import Task
 import asyncio
 
-# Import the wait_random function
 wait_random = __import__("0-basic_async_syntax").wait_random
 
 
