@@ -22,7 +22,7 @@ async def measure_runtime():
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
-        async_comprehension(),
+        async_comprehension()
     )
 
     t1 = time.time()
