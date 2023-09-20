@@ -5,11 +5,13 @@
 
 import asyncio
 import random
+from typing import List
 
 
-async def async_generator() -> float:
+async def async_generator() -> List[float]:
     """
-    Asynchronous generator that yields random floats between 0 and 10.
+    Asynchronous generator that yields
+      random floats between 0 and 10.
 
     Yields:
         float: A random float between 0 and 10.
