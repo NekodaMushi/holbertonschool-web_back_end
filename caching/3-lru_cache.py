@@ -1,14 +1,42 @@
 #!/usr/bin/python3
+"""
+LRU caching - LRUCache class
+"""
 
 from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
+    """
+    A caching class that implements a Least Recently Used (LRU)
+    eviction policy.
+
+    Methods:
+        __init__(self): Initialize the LRUCache.
+        put(self, key, item): Store an item in the cache.
+        get(self, key): Retrieve an item from the cache.
+
+    Attributes:
+        cache_data (dict): A dictionary to store cached data.
+        keys (list): A list to maintain the order of keys based on
+        the LRU policy.
+    """
+
     def __init__(self):
+        """
+        Initialize the LRUCache.
+        """
         super().__init__()
         self.keys = []
 
     def put(self, key, item):
+        """
+        Store an item in the cache.
+
+        Args:
+            key: The key for the item.
+            item: The item to be stored.
+        """
         if key is None or item is None:
             return
 
@@ -22,6 +50,15 @@ class LRUCache(BaseCaching):
             print(f"DISCARD: {discarded_key}")
 
     def get(self, key):
+        """
+        Retrieve an item from the cache.
+
+        Args:
+            key: The key for the item to retrieve.
+
+        Returns:
+            The cached item if found, otherwise None.
+        """
         if key is None or key not in self.cache_data:
             return None
         self.keys.remove(key)
