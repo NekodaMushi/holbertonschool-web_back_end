@@ -17,7 +17,8 @@ class LIFOCache(BaseCaching):
 
     Attributes:
         cache_data (dict): A dictionary to store cached data.
-        keys (list): A list to maintain the order of keys based on the LIFO policy.
+        keys (list): A list to maintain
+          the order of keys based on the LIFO policy.
     """
 
     def __init__(self):
