@@ -16,6 +16,10 @@ def index_range(page, page_size):
         tuple: A tuple containing the start and end indices (inclusive)
         for the specified page.
     """
+
+    if page <= 0 or page_size <= 0:
+        return None
+
     index_start = (page - 1) * page_size
     index_end = index_start + page_size - 1
 
