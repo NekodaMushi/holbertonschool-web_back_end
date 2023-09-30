@@ -56,3 +56,7 @@ class Server:
         data_set = self.dataset()[start_index:end_index]
 
         return data_set
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        data_dict = self.get_page(page, page_size)
+        print(data_dict)
