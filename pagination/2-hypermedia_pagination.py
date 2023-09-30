@@ -45,13 +45,23 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        Retrieve a specific page of data from the dataset.
+
+        Args:
+            page (int): The page number to retrieve (default is 1).
+            page_size (int): The number of items per page (default is 10).
+
+        Returns:
+            List[List]: A list of rows representing the data for the specified page.
+        """
         assert (
             isinstance(page, int) and page > 0
-        ), "Page should be an int and superior than 0"
+        ), "Page should be an int and superior to 0"
 
         assert (
             isinstance(page_size, int) and page_size > 0
-        ), "Page size should be an int and superior than 0"
+        ), "Page size should be an int and superior to 0"
 
         start_index, end_index = index_range(page, page_size)
         data_set = self.dataset()[start_index:end_index]
@@ -59,6 +69,22 @@ class Server:
         return data_set
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        """
+        Retrieve a specific page of data from the dataset along with pagination details.
+
+        Args:
+            page (int): The page number to retrieve (default is 1).
+            page_size (int): The number of items per page (default is 10).
+
+        Returns:
+            dict: A dictionary containing the following pagination information:
+                - "page_size": The number of items in the current page.
+                - "page": The current page number.
+                - "data": A list of rows representing the data for the current page.
+                - "next_page": The next page number (or None if at the end).
+                - "prev_page": The previous page number (or None if at the beginning).
+                - "total_pages": The total number of pages in the dataset.
+        """
         data = self.get_page(page, page_size)
 
         total_row = len(self.dataset())
