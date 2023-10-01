@@ -34,7 +34,7 @@ class Server:
         if self.__indexed_dataset is None:
             dataset = self.dataset()
             self.__indexed_dataset = {i: dataset[i] 
-                                      for i in range(len(dataset))}
+        for i in range(len(dataset))}
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
@@ -66,7 +66,7 @@ class Server:
         data = [
             self.indexed_dataset().get(i)  # Use .get() to avoid KeyError
             for i in range(start_index, min(start_index + 
-                                            page_size, total_rows))
+            page_size, total_rows))
         ]
 
         hyper_dict = {
