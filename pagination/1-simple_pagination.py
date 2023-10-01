@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-import csv
-from typing import List
 
 """
-Holberton task"""
+Simple pagination
+"""
+import csv
+from typing import List
 
 
 def index_range(page, page_size):
