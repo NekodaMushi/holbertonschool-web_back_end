@@ -44,6 +44,9 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """akes two integer arguments page
+        with default value 1 and page_size
+          with default value 10."""
         assert (
             isinstance(page, int) and page > 0
         ), "Page should be an int and superior than 0"
@@ -56,7 +59,3 @@ class Server:
         data_set = self.dataset()[start_index:end_index]
 
         return data_set
-
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
-        data_dict = self.get_page(page, page_size)
-        print(data_dict)
