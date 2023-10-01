@@ -2,6 +2,9 @@
 import csv
 from typing import List
 
+"""
+Holberton task"""
+
 
 def index_range(page, page_size):
     """
@@ -44,9 +47,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """akes two integer arguments page
+        """
+        Makes two integer arguments page
         with default value 1 and page_size
-          with default value 10."""
+          with default value 10.
+        """
         assert (
             isinstance(page, int) and page > 0
         ), "Page should be an int and superior than 0"
