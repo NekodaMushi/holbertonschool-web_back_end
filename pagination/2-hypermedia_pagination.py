@@ -3,6 +3,8 @@ import csv
 from typing import List
 import math
 
+""" Adding method returning a dict"""
+
 
 def index_range(page, page_size):
     """
