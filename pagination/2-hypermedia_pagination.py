@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+"""
+    Simple helper function
+"""
+
 import csv
 from typing import List
 import math
-
-""" Adding method returning a dict"""
 
 
 def index_range(page, page_size):
@@ -48,15 +50,7 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-        Retrieve a specific page of data from the dataset.
-
-        Args:
-            page (int): The page number to retrieve (default is 1).
-            page_size (int): The number of items per page (default is 10).
-
-        Returns:
-            List[List]: A list of rows representing
-            the data for the specified page.
+        Get the asked page
         """
         assert (
             isinstance(page, int) and page > 0
@@ -73,27 +67,7 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
-            Retrieve a specific page of data from
-              the dataset along with pagination details.
-
-        Args:
-            page (int): The page number to retrieve (default is 1).
-            page_size (int): The number of items per page (default is 10).
-
-        Returns:
-            dict: A dictionary containing the
-              following pagination information:
-                - "page_size": The number of
-                  items in the current page.
-                - "page": The current page number.
-                - "data": A list of rows representing
-                  the data for the current page.
-                - "next_page": The next page number
-                  (or None if at the end).
-                - "prev_page": The previous page
-                  number (or None if at the beginning).
-                - "total_pages": The total number
-                  of pages in the dataset.
+        Retrieve the key value pair of the dictionary
         """
         data = self.get_page(page, page_size)
 
