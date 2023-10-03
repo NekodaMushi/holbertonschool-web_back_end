@@ -18,7 +18,8 @@ def filter_datum(
         fields (List[str]): A list of strings representing all fields to obfuscate
         redaction (str): Ta string representing by what the field will be obfuscated
         message (str): a string representing the log line.
-        separator (str): a string representing by which character is separating all fields in the log line
+        separator (str): a string representing by which character
+        is separating all fields in the log line
 
     Returns:
         str: log message obfuscated.
@@ -26,6 +27,7 @@ def filter_datum(
     """
     for field in fields:
         message = re.sub(
-            field + "=.+?" + separator, field + "=" + redaction + separator, message
+            field + "=.+?" + separator,
+            field + "=" + redaction + separator, message
         )
     return message
