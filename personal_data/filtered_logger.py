@@ -15,8 +15,10 @@ def filter_datum(
     Filter sensitive information in a message.
 
     Args:
-        fields (List[str]): A list of strings representing all fields to obfuscate
-        redaction (str): Ta string representing by what the field will be obfuscated
+        fields (List[str]): A list of strings representing
+        all fields to obfuscate
+        redaction (str): Ta string representing by what
+        the field will be obfuscated
         message (str): a string representing the log line.
         separator (str): a string representing by which character
         is separating all fields in the log line
