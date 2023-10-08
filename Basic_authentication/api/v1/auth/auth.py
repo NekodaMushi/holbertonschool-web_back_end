@@ -21,7 +21,8 @@ class Auth:
         slash_tolerant_path = path if path.endswith("/") else path + "/"
 
         slash_tolerant_excluded_path = [
-            path if path.endswith("/") else path + "/" for path in excluded_paths
+            path if path.endswith("/") else path + "/"
+            for path in excluded_paths
         ]
 
         if slash_tolerant_path in slash_tolerant_excluded_path:
