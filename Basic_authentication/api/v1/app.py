@@ -28,7 +28,9 @@ def forbidden(error) -> str:
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """“Not authenticated or either not authenticated at all or authenticated incorrectly"""
+    """“Not authenticated or either
+    not authenticated at all
+      or authenticated incorrectly"""
     return jsonify({"error": "Unauthorized"}), 401
 
 
