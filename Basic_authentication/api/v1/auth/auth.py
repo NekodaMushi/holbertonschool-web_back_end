@@ -21,8 +21,7 @@ class Auth:
         slash_tolerant_path = path if path.endswith("/") else path + "/"
 
         slash_tolerant_excluded_path = [
-            path if path.endswith("/") else path + "/"
-            for path in excluded_paths
+            path if path.endswith("/") else path + "/" for path in excluded_paths
         ]
 
         if slash_tolerant_path in slash_tolerant_excluded_path:
@@ -31,7 +30,11 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """Init authorization requirement"""
-        return None
+        if request is None:
+            return None
+        if "Authorization" not in request.header:
+            return None
+        return request.header["Authorization"]
 
     def current_user(self, request=None) -> TypeVar("User"):
         """Init user requirement"""
