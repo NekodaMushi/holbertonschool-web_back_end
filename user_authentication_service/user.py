@@ -2,7 +2,7 @@
 
 """SQLAlchemy model named User for a database table named users"""
 
-from sqlalchemy import create_engine, ForeignKey, Column, String, Integer
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
