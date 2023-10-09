@@ -49,5 +49,7 @@ class DB:
             if user is None:
                 raise NoResultFound
             return user
-        except:
-            raise InvalidRequestError
+        except InvalidRequestError:
+            raise
+
+    # update_user(self, user_id: int, )
