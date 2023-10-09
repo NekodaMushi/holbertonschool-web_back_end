@@ -6,8 +6,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 
+# tasks 0 & +
 from user import Base, User
 
+# task 2
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -41,6 +43,7 @@ class DB:
         return user
 
     def find_user_by(self, **kwargs) -> User:
+        """Find user in database"""
         try:
             user = self._session.query(User).filter_by(**kwargs).first()
             if user is None:
