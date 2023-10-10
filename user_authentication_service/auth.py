@@ -54,6 +54,14 @@ class Auth:
 
             return is_it_the_same_hash
 
+    def get_user_from_session_id(self, session_id: str) -> User:
+        try:
+            user = self._db.find_user_by(session_id=session_id)
+        except NoResultFound:
+            return None
+        else:
+            return user
+
     def create_session(self, email: str) -> str:
         try:
             user = self._db.find_user_by(email=email)
@@ -63,10 +71,10 @@ class Auth:
             user.session_id = _generate_uuid()
             return user.session_id
 
-    def get_user_from_session_id(self, session_id: str) -> User:
+    def destroy_session(self, user_id: int) -> None:
         try:
-            user = self._db.find_user_by(session_id=session_id)
+            user = self._db.find_user_by(user_id=user_id)
         except NoResultFound:
             return None
         else:
-            return user
+            user.session_id = None
