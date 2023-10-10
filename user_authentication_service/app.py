@@ -55,8 +55,7 @@ def update_password():
         password = AUTH.update_password(reset_token, new_password)
     except Exception:
         abort(403)
-    else:
-        return jsonify({"email": email, "message": "Password updated"}), 200
+    return jsonify({"email": email, "message": "Password updated"}), 200
 
 
 @app.route("/users", methods=["POST"])
