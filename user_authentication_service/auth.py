@@ -18,7 +18,7 @@ def _hash_password(password: str) -> bytes:
 
 def _generate_uuid() -> str:
     """Fn representing a new UUID"""
-    return uuid.uuid1()
+    return str(uuid.uuid1())
 
 
 class Auth:
