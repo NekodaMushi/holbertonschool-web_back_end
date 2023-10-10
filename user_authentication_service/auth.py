@@ -28,6 +28,7 @@ class Auth:
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> User:
+        """Record new User"""
         try:
             self._db.find_user_by(email=email)
         except NoResultFound:
@@ -38,6 +39,7 @@ class Auth:
             raise ValueError(f"User{email} already exists")
 
     def valid_login(self, email: str, password: str) -> bool:
+        """Check if login/password are correct"""
         try:
             user = self._db.find_user_by(email=email)
         except NoResultFound:
@@ -55,6 +57,7 @@ class Auth:
             return is_it_the_same_hash
 
     def get_user_from_session_id(self, session_id: str) -> User:
+        """Find user using the session id"""
         try:
             user = self._db.find_user_by(session_id=session_id)
         except NoResultFound:
@@ -63,6 +66,7 @@ class Auth:
             return user
 
     def create_session(self, email: str) -> str:
+        """Create new session - Login"""
         try:
             user = self._db.find_user_by(email=email)
         except NoResultFound:
@@ -72,6 +76,7 @@ class Auth:
             return user.session_id
 
     def destroy_session(self, user_id: int) -> None:
+        """Close session - Logout"""
         try:
             user = self._db.find_user_by(id=user_id)
         except NoResultFound:
@@ -80,6 +85,7 @@ class Auth:
             self._db.update_user(user.id, session_id=None)
 
     def get_reset_password_token(self, email: str) -> str:
+        """Allow user to reset his password"""
         try:
             user = self._db.find_user_by(email=email)
         except NoResultFound:
@@ -89,6 +95,7 @@ class Auth:
             return user.reset_token
 
     def update_password(self, reset_token: str, password: str) -> None:
+        """Changes user's password"""
         try:
             user = self._db.find_user_by(reset_token=reset_token)
         except NoResultFound:
