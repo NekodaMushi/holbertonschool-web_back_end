@@ -13,11 +13,13 @@ AUTH = Auth()
 
 @app.route("/", methods=["GET"])
 def basic():
+    """Fn testing flask app"""
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route("/profile", methods=["GET"])
 def profile():
+    """Get access to user profil"""
     session_id = request.cookies.get("session_id")
     if session_id:
         user = AUTH.get_user_from_session_id(session_id)
@@ -29,6 +31,7 @@ def profile():
 
 @app.route("/reset_password", methods=["POST"])
 def get_reset_password_token():
+    """Get reset token"""
     email = request.form.get("email")
     if email:
         reset_token = AUTH.get_reset_password_token(email)
@@ -43,6 +46,7 @@ def get_reset_password_token():
 
 @app.route("/reset_password", methods=["PUT"])
 def update_password():
+    """Updating password"""
     email = request.form.get("email")
     reset_token = request.form.get("reset_token")
     new_password = request.form.get("new_password")
@@ -57,6 +61,7 @@ def update_password():
 
 @app.route("/users", methods=["POST"])
 def users():
+    """Create new user"""
     email = request.form.get("email")
     password = request.form.get("password")
 
@@ -69,6 +74,7 @@ def users():
 
 @app.route("/sessions", methods=["POST"])
 def login():
+    """Log in User"""
     email = request.form.get("email")
     password = request.form.get("password")
 
@@ -85,6 +91,7 @@ def login():
 
 @app.route("/sessions", methods=["DELETE"])
 def logout():
+    """Log out User"""
     session_id = request.cookies.get("session_id")
     if session_id:
         user = AUTH.get_user_from_session_id(session_id)
