@@ -3,10 +3,9 @@
 """Basic flask app"""
 
 from flask import Flask, jsonify, request
+from auth import Auth
 
 app = Flask(__name__)
-
-from auth import Auth
 
 
 AUTH = Auth()

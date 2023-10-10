@@ -39,10 +39,10 @@ class Auth:
         else:
             database_hashed_password = user.hashed_password
 
-            password_entered_on_the_website_right_now = password
+            currentPasswordEntered = password
 
             is_it_the_same_hash = bcrypt.checkpw(
-                password_entered_on_the_website_right_now.encode("utf-8"),
+                currentPasswordEntered.encode("utf-8"),
                 database_hashed_password,
             )
 
