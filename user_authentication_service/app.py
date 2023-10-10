@@ -33,7 +33,7 @@ def login():
     email = request.form.get("email")
     password = request.form.get("password")
 
-    if AUTH.valid_login(email, password) == True:
+    if AUTH.valid_login(email, password):
         session_id = AUTH.create_session(email)
         response = make_response(
             jsonify({"email": "<user email>", "message": "logged in"})
@@ -42,11 +42,6 @@ def login():
         return response
     else:
         abort(401)
-
-    # try:
-    #     user = AUTH.valid_login(email, password)
-    #     return jsonify({"email": email, "password": password, "message": "are correct"})
-    # except
 
 
 if __name__ == "__main__":
