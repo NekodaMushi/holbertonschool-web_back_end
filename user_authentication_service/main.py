@@ -85,7 +85,8 @@ def update_password(email: str, reset_token: str, new_password: str) -> None:
     """Update password - Using reset_token"""
     global url
     url += "reset_password"
-    payload = {"email": email, "reset_token": reset_token, "new_password": new_password}
+    payload = {"email": email, "reset_token": reset_token,
+               "new_password": new_password}
 
     response = requests.post(url, data=payload)
 
