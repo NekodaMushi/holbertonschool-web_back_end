@@ -100,15 +100,23 @@ def login():
 def logout():
     """Log out User"""
     session_id = request.cookies.get("session_id")
-    if session_id:
+    # if session_id:
+    #     user = AUTH.get_user_from_session_id(session_id)
+    #     if user:
+    #         AUTH.destroy_session(user.id)
+    #         response = redirect("/")
+    #         response.delete_cookie("session_id")
+    #         return response
+    #     else:
+    #         abort(403)
+    try:
         user = AUTH.get_user_from_session_id(session_id)
-        if user:
-            AUTH.destroy_session(user.id)
-            response = redirect("/")
-            response.delete_cookie("session_id")
-            return response
-        else:
-            abort(403)
+    except Exception:
+        abort(403)
+    AUTH.destroy_session(user.id)
+    response = redirect("/")
+    response.delete_cookie("session_id")
+    return response
 
 
 if __name__ == "__main__":
