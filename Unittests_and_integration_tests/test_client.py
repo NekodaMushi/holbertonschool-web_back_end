@@ -1,4 +1,4 @@
-#!/usr/env/env python3
+#!/usr/bin/env python3
 
 """Testing Client :
 - client.GithubOrgClient 
