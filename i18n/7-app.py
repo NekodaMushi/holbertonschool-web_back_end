@@ -39,7 +39,31 @@ def get_locale():
     locale = request.args.get("locale")
     if locale and locale in app.config["LANGUAGES"]:
         return locale
+    if g.user:
+        locale = g.user.get("locale")
+        if locale and locale in app.config["LANGUAGES"]:
+            return locale
+    locale = request.headers.get("locale")
+    if locale and locale in Config.LANGUAGES:
+        return locale
+
     return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+
+@babel.timezoneselector
+def get_timezone():
+    """Find appropriate time zone"""
+
+    timezone = request.args.get("timezone")
+    if timezone:
+        return timezone
+
+    if g.user:
+        timezone = g.user.get("timezone")
+        if timezone:
+            return timezone
+
+    return request.headers.get("timezone")
 
 
 @app.before_request
