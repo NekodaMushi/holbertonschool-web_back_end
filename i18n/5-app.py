@@ -32,6 +32,7 @@ class Config:
 
 
 app.config.from_object(Config)
+babel.init_app(app)
 
 
 @app.route("/", methods=["GET"])
