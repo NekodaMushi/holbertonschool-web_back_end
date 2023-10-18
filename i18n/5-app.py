@@ -15,6 +15,14 @@ users = {
 }
 
 
+@app.before_request
+def before_request():
+    """
+    before_request function
+    """
+    g.user = get_user()
+
+
 class Config:
     """Config class"""
 
@@ -39,14 +47,6 @@ def get_locale():
     if locale and locale in app.config["LANGUAGES"]:
         return locale
     return request.accept_languages.best_match(app.config["LANGUAGES"])
-
-
-@app.before_request
-def before_request():
-    """
-    before_request function
-    """
-    g.user = get_user()
 
 
 def get_user():
