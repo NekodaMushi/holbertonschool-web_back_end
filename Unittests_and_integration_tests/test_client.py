@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
-"""Testing Client :
-- client.GithubOrgClient 
-- _public_repos_url 
-- has_license
+"""Testing Client
 """
 
 import unittest
