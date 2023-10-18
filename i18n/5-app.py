@@ -2,7 +2,7 @@
 
 """Basic Flask app"""
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -39,6 +39,14 @@ def get_locale():
     if locale and locale in app.config["LANGUAGES"]:
         return locale
     return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+
+@app.before_request
+def before_request():
+    """
+    before_request function
+    """
+    g.user = get_user()
 
 
 def get_user():
