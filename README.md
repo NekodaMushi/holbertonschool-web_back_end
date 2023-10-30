@@ -46,6 +46,10 @@ Welcome! This is my comprehensive Back-end project, encompassing a range of func
 
 ### Caching
 
+
+![3-data-loading-patterns-improve-frontend-performance](https://github.com/NekodaMushi/holbertonschool-web_back_end/assets/98282927/80600646-ab5e-47d9-8156-cd2b8338d30f)
+
+
 #### Topics Covered:
 
 - **What a Caching System Is**: A system that temporarily stores copies of data to enhance performance.
