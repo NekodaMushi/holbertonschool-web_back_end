@@ -51,7 +51,9 @@ def replay(method: Callable) -> Callable:
     r_outputs = r.lrange(outputs, 0, -1)
 
     for inp, out in zip(r_inputs, r_outputs):
-        print(f"{method.__qualname__}(*{inp.decode('utf-8')}) -> {out.decode('utf-8')}")
+        inp_str = inp.decode("utf-8")
+        out_str = out.decode("utf-8")
+        print(f"{method.__qualname__}(*{inp_str}) -> {out_str}")
 
 
 class Cache:
@@ -80,9 +82,11 @@ class Cache:
         return data
 
     def get_str(self, data: str) -> str:
-        """automatically parametrize Cache.get with the correct conversion function"""
+        """automatically parametrize Cache.get
+        with the correct conversion function"""
         return data.decode("utf-8")
 
     def get_int(self, data: str) -> int:
-        """automatically parametrize Cache.get with the correct conversion function"""
+        """automatically parametrize Cache.get
+        with the correct conversion function"""
         return int(data)
