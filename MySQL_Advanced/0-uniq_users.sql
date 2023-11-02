@@ -1,3 +1,5 @@
+-- create users table
+-- attributes are id email & name
 CREATE TABLE IF NOT EXISTS users
 (
   id serial NOT NULL PRIMARY KEY AUTO_INCREMENT,
