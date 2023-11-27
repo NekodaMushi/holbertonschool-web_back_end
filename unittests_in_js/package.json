@@ -1,0 +1,11 @@
+{
+  "name": "unittests_in_js",
+  "version": "1.0.0",
+  "description": "Mocha is a powerful and flexible JavaScript test framework that runs on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
