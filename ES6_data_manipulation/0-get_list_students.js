@@ -6,3 +6,8 @@ export default function getListStudents() {
   ];
   return array;
 }
+console.log(
+  updateStudentGradeByCity(getListStudents(), "San Francisco", [
+    { studentId: 5, grade: 97 },
+  ])
+);
