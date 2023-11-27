@@ -1,10 +1,15 @@
 function calculateNumber(type, a, b) {
-  const operation = {
-    SUM: Math.round(a) + Math.round(b),
-    SUBTRACT: Math.round(a) - Math.round(b),
-    DIVIDE: Math.round(b) === 0 ? "Error" : Math.round(a) / Math.round(b),
-  };
-  return operation[type] || "Wrong operator chosen";
+  if (type === "SUM") {
+    return Math.round(a) + Math.round(b);
+  } else if (type === "SUBTRACT") {
+    return Math.round(a) - Math.round(b);
+  } else if (type === "DIVIDE") {
+    if (Math.round(b) === 0) {
+      return "Error";
+    } else {
+      return Math.round(a) / Math.round(b);
+    }
+  }
 }
 
 module.exports = calculateNumber;
