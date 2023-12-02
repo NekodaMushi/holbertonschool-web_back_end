@@ -1,19 +1,19 @@
-const fs = require("fs");
+const fs = require('fs');
 
 function countStudents(path) {
   if (!fs.existsSync(path)) {
-    throw new Error("Cannot load the database");
+    throw new Error('Cannot load the database');
   }
 
-  const fileContent = fs.readFileSync(path, "utf8");
+  const fileContent = fs.readFileSync(path, 'utf8');
 
-  const lines = fileContent.split("\n").filter((line) => line.trim());
+  const lines = fileContent.split('\n').filter((line) => line.trim());
 
   // Remove the header
   lines.shift();
 
   // Parsing the CSV data
-  const students = lines.map((line) => line.split(","));
+  const students = lines.map((line) => line.split(','));
 
   const fields = [...new Set(students.map((student) => student[3]))];
   console.log(`Number of students: ${students.length}`);
@@ -24,7 +24,7 @@ function countStudents(path) {
     console.log(
       `Number of students in ${field}: ${
         fieldStudents.length
-      }. List: ${fieldStudentsNames.join(", ")}`
+      }. List: ${fieldStudentsNames.join(', ')}`,
     );
   }
 }
