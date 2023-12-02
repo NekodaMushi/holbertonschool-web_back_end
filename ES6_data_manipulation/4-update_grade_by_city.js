@@ -7,7 +7,7 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
       if (gradEl) {
         student.grade = gradEl.grade;
       } else {
-        student.grade = "N/A";
+        student.grade = 'N/A';
       }
       return student;
     });
